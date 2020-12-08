@@ -6,9 +6,10 @@
   let wordcount = 0;
   let started = false;
   let completed = false;
+  let restart = false;
 
   function onWordChanged(data) {
-    wordcount = data.detail.wordcount;
+    wordcount = data.detail;
   }
 
   function onStarted() {
@@ -18,10 +19,21 @@
   function onCompleted() {
     completed = true;
   }
+
+  function handleRestart() {
+    restart = !restart;
+  }
+
 </script>
 
 <main>
-  <Meter bind:wordcount={ wordcount } bind:started={ started } bind:completed={ completed }/>
-  <Typebox on:wordChanged={ onWordChanged } on:started={ onStarted } on:completed={ onCompleted }/>
-  <Control />
+  <Meter bind:wordcountData={ wordcount } bind:started={ started } bind:completed={ completed } bind:restartToggle={ restart }/>
+  <Typebox on:wordChanged={ onWordChanged } on:started={ onStarted } on:completed={ onCompleted } bind:restartToggle={ restart }/>
+  <Control on:restart={ handleRestart } />
+  <div style="text-align: center">
+    <div>说明：</div>
+    <div>1. 每行结尾都是一个空格</div>
+    <div>2. 完成后要敲个回车</div>
+    <div>3. Restart是整个重新开始</div>
+  </div>
 </main>

@@ -3,6 +3,7 @@
   import Character from "./Character.svelte";
 
   export let text;
+  export let restartToggle;
 
   const wordCountDispatch = createEventDispatcher();
   const startDispatch = createEventDispatcher();
@@ -13,6 +14,8 @@
   let started = false;
   let textarea;
   let disableTextarea = false;
+
+  $: restartToggle, onRestart();
 
   function handleclick(event) {
     textarea.focus();
@@ -41,11 +44,34 @@
   }
 
   function countWords() {
+    let correct = 0;
+    for (let i = 0; i < typedcontent.length && i < text.length; i++) {
+      if (typedcontent[i] == text[i]) {
+        correct += 1;
+      }
+    }
+
     wordCountDispatch(
       "wordChanged",
-      {"wordcount": (typedcontent.replace(/ /g, '')).length, },
+      {
+        "wordcountSpace": typedcontent.length,
+        "wordcount": (typedcontent.replace(/ /g, '')).length,
+        "correct": correct,
+      },
     );
   }
+
+  function onRestart() {
+    cursor = 0;
+    typedcontent = "";
+    started = false;
+    disableTextarea = false;
+
+    if (textarea) {
+      textarea.value = "";
+    }
+  }
+
 </script>
 
 <div on:click={ handleclick }>

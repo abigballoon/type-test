@@ -7,17 +7,17 @@
 
 <style>
   span {
-    color: #b3b3b3;
+    color: #969696;
     font-family: monospace;
-    font-size: 1.2rem;
+    font-size: 1.5rem;
   }
 
   .next {
-    border-bottom: 4px solid #b3b3b3;
+    border-bottom: 4px solid #969696;
   }
 
   .inactive {
-    color: #b3b3b3;
+    color: #969696;
   }
 
   .correct {

@@ -1,22 +1,26 @@
 <script>
-import { create_in_transition } from "svelte/internal";
-
-import { onMount } from "svelte";
-
+  import { onMount } from "svelte";
   import Content from "./Content.svelte";
-
   import { createRandomText } from "./text-generator.js";
 
+  export let restartToggle = false;
+
   let text = "";
+
+  $: restartToggle, onRestart();
 
   onMount(() => {
     text = createRandomText();
   });
 
+  function onRestart() {
+    text = createRandomText();
+  }
+
 </script>
 
 <div class="box">
-  <div><Content text={ text } on:wordChanged on:started on:completed /></div>
+  <div><Content text={ text } on:wordChanged on:started on:completed bind:restartToggle={ restartToggle }/></div>
 </div>
 
 <style>
