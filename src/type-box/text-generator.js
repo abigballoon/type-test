@@ -1,6 +1,6 @@
 import { WORDS } from "./words.js";
 
-let DEFAULT_MAX_LENGTH = 500;
+let DEFAULT_MAX_LENGTH = 50;
 let NUMBER = "1234567890";
 let SYMBLE = "{}_+-=[]<>,./;':\"!@#$%^&*()";
 let COMMON_SYMBLE = "_+-=,./;':\"!@%()";

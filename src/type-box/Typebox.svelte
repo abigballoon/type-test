@@ -4,17 +4,18 @@
   import { createRandomText } from "./text-generator.js";
 
   export let restartToggle = false;
+  export let settings;
 
   let text = "";
 
   $: restartToggle, onRestart();
 
   onMount(() => {
-    text = createRandomText();
+    text = createRandomText(settings);
   });
 
   function onRestart() {
-    text = createRandomText();
+    text = createRandomText(settings);
   }
 
 </script>

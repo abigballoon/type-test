@@ -54,7 +54,7 @@
     wordCountDispatch(
       "wordChanged",
       {
-        "wordcountSpace": typedcontent.length,
+        "wordcountSpace": text.length,
         "wordcount": (typedcontent.replace(/ /g, '')).length,
         "correct": correct,
       },
