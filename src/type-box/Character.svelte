@@ -8,7 +8,7 @@
 <style>
   span {
     color: #969696;
-    font-family: monospace;
+    font-family: PixelFont;
     font-size: 1.5rem;
   }
 
