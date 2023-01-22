@@ -3,6 +3,12 @@
 	src: url(/fonts/ark-pixel.woff2);
 }
 
+@font-face {
+	font-family: Smiley-Sans;
+	src: url(/fonts/SmileySans-Oblique.ttf.woff2);
+}
+
+
 html, body {
 	position: relative;
 	width: 100%;
@@ -14,7 +20,7 @@ body {
 	margin: 0;
 	padding: 8px;
 	box-sizing: border-box;
-	font-family: PixelFont;
+	font-family: Smiley-Sans;
 }
 
 a {

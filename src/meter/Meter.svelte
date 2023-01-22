@@ -11,6 +11,7 @@
   let wordcount = 0;
   let wpm = 0;
   let accuracy = 0.0;
+  let timepassed = 0;
 
   $: restartToggle, clear();
 
@@ -24,7 +25,7 @@
 
   $: if (wordcountData) {
     wordcount = wordcountData.wordcount;
-    accuracy = Math.floor(((wordcountData.correct || 0) / (wordcountData.wordcountSpace || 1)) * 100);
+    accuracy = Math.floor(((wordcountData.correct || 0) / (wordcountData.totaltyped || 1)) * 100);
   }
 
   function currentTime() {
@@ -35,8 +36,8 @@
     startAt = currentTime();
 
     return setInterval(() => {
-      let timepassed = (currentTime() - startAt) / 60;
-      time = timepassed;
+      timepassed = (currentTime() - startAt);
+      time = timepassed / 60;
       wpm = Math.round(wordcount / 5 / time);
     }, 1000);
   }
@@ -59,6 +60,7 @@
 <div>
   <span style="margin-right: 1rem">WPM: { wpm }</span>
   <span>Accuracy: { accuracy }%</span>
+  <span>Time: { startAt == 0 ? 0 : Math.round(timepassed) }s</span>
 </div>
 
 <style>

@@ -54,8 +54,13 @@
     wordCountDispatch(
       "wordChanged",
       {
+        // original text
         "wordcountSpace": text.length,
+        // all typed characters (without space)
         "wordcount": (typedcontent.replace(/ /g, '')).length,
+        // all typed characters (without \n)
+        "totaltyped": (typedcontent.replace(/\n/g, '')).length,
+        // all correctly typed characters
         "correct": correct,
       },
     );
