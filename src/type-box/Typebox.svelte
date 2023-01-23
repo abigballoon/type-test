@@ -21,14 +21,13 @@
 </script>
 
 <div class="box">
-  <div><Content text={ text } on:wordChanged on:started on:completed bind:restartToggle={ restartToggle }/></div>
+  <div><Content text={ text } on:wordChanged on:started on:completed on:keyPressed on:keyUp bind:restartToggle={ restartToggle }/></div>
 </div>
 
 <style>
   .box {
     text-align: center;
     padding: 1em;
-    width: 40%;
     margin: 0 auto;
     border: 1px solid #b3b3b3;
     border-radius: 4px;

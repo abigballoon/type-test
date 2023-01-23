@@ -1,5 +1,5 @@
 <script>
-  import { createEventDispatcher } from "svelte";
+  import { createEventDispatcher, onMount } from "svelte";
   import Character from "./Character.svelte";
 
   export let text;
@@ -8,6 +8,8 @@
   const wordCountDispatch = createEventDispatcher();
   const startDispatch = createEventDispatcher();
   const completeDispatch = createEventDispatcher();
+  const keyPressedDispatch = createEventDispatcher();
+  const keyUpDispatch = createEventDispatcher();
 
   let cursor = 0;
   let typedcontent = "";
@@ -76,6 +78,15 @@
       textarea.value = "";
     }
   }
+
+  onMount(() => {
+    textarea.addEventListener("keydown", e => {
+      keyPressedDispatch("keyPressed", e);
+    });
+    textarea.addEventListener("keyup", e => {
+      keyUpDispatch("keyUp", e);
+    });
+  });
 
 </script>
 
