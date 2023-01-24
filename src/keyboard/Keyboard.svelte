@@ -16,11 +16,11 @@ let keys = [
   {code: "Digit0", key: "0", shiftMod: ")", capMod: null},
   {code: "Minus", key: "-", shiftMod: "_", capMod: null},
   {code: "Equal", key: "=", shiftMod: "+", capMod: null},
-  {code: "Backspace", key: "backspace", shiftMod: null, capMod: null, width:"50"}
+  {code: "Backspace", key: "backspace", shiftMod: null, capMod: null, width:"60"}
   ],
 
   [
-  {code: "Tab", key: "Tab", shiftMod: null, capMod: null, width: "40"},
+  {code: "Tab", key: "Tab", shiftMod: null, capMod: null, width: "50"},
   {code: "KeyQ", key: "q", shiftMod: "Q", capMod: "Q"},
   {code: "KeyW", key: "w", shiftMod: "W", capMod: "W"},
   {code: "KeyE", key: "e", shiftMod: "E", capMod: "E"},
@@ -37,7 +37,7 @@ let keys = [
   ],
 
   [
-  {code: "CapsLock", key: "caps lock", shiftMod: null, capMod: null, width: "50", stateful: true},
+  {code: "CapsLock", key: "caps lock", shiftMod: null, capMod: null, width: "60", stateful: true},
   {code: "KeyA", key: "a", shiftMod: "A", capMod: "A"},
   {code: "KeyS", key: "s", shiftMod: "S", capMod: "S"},
   {code: "KeyD", key: "d", shiftMod: "D", capMod: "D"},
@@ -52,7 +52,7 @@ let keys = [
   ],
 
   [
-  {code: "ShiftLeft", key: "shift", shiftMod: null, capMod: null, width: "60"},
+  {code: "ShiftLeft", key: "shift", shiftMod: null, capMod: null, width: "70"},
   {code: "KeyZ", key: "z", shiftMod: "Z", capMod: "Z"},
   {code: "KeyX", key: "x", shiftMod: "X", capMod: "X"},
   {code: "KeyC", key: "c", shiftMod: "C", capMod: "C"},
@@ -66,7 +66,7 @@ let keys = [
   {code: "ShiftRight", key: "shift", shiftMod: null, capMod: null, width: "58"}
   ],
  
-  [{code: null, empty: true, width: "110"},
+  [{code: null, empty: true, width: "120"},
    {code: "Space", key: "SPACE", width:"116"}],
 ];
 

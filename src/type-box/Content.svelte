@@ -5,11 +5,7 @@
   export let text;
   export let restartToggle;
 
-  const wordCountDispatch = createEventDispatcher();
-  const startDispatch = createEventDispatcher();
-  const completeDispatch = createEventDispatcher();
-  const keyPressedDispatch = createEventDispatcher();
-  const keyUpDispatch = createEventDispatcher();
+  const eventDispatch = createEventDispatcher();
 
   let cursor = 0;
   let typedcontent = "";
@@ -36,13 +32,13 @@
     countWords();
     if (!started) {
       started = true;
-      startDispatch("started");
+      eventDispatch("started");
     }
   }
 
   function handleComplete() {
     disableTextarea = true;
-    completeDispatch("completed");
+    eventDispatch("completed");
   }
 
   function countWords() {
@@ -53,7 +49,7 @@
       }
     }
 
-    wordCountDispatch(
+    eventDispatch(
       "wordChanged",
       {
         // original text
@@ -65,6 +61,15 @@
         // all correctly typed characters
         "correct": correct,
       },
+    );
+
+    if (!typedcontent.length) { return; }
+    let target = text[typedcontent.length - 1];
+    let typed = typedcontent[typedcontent.length - 1];
+    let targetCorrect = target == typed;
+    eventDispatch(
+      "statsUpdate",
+      {"character": target.toUpperCase(), "correct": targetCorrect},
     );
   }
 
@@ -81,10 +86,10 @@
 
   onMount(() => {
     textarea.addEventListener("keydown", e => {
-      keyPressedDispatch("keyPressed", e);
+      eventDispatch("keyPressed", e);
     });
     textarea.addEventListener("keyup", e => {
-      keyUpDispatch("keyUp", e);
+      eventDispatch("keyUp", e);
     });
   });
 

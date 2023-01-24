@@ -21,7 +21,16 @@
 </script>
 
 <div class="box">
-  <div><Content text={ text } on:wordChanged on:started on:completed on:keyPressed on:keyUp bind:restartToggle={ restartToggle }/></div>
+  <div>
+    <Content text={ text }
+             on:wordChanged
+             on:started
+             on:completed
+             on:keyPressed
+             on:keyUp
+             on:statsUpdate
+             bind:restartToggle={ restartToggle }/>
+  </div>
 </div>
 
 <style>
@@ -29,7 +38,6 @@
     text-align: center;
     padding: 1em;
     margin-bottom: 4px;
-    width: 60%;
     border: 1px solid #b3b3b3;
     border-radius: 4px;
   }
