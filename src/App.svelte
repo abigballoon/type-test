@@ -43,23 +43,18 @@
 <main>
   <Meter bind:wordcountData={ wordcount } bind:started={ started } bind:completed={ completed } bind:restartToggle={ restart }/>
   <div class="content">
-    <div class="left-side-bar">
-      <Keyboard bind:this={keyboard} />
-    </div>
-    <div class="middle-content">
-      <Typebox
-          on:wordChanged={ onWordChanged }
-          on:started={ onStarted }
-          on:completed={ onCompleted }
-          on:keyPressed= { onKeyPressed }
-          on:keyUp= { onKeyUp }
-          bind:restartToggle={ restart }
-          bind:settings={ settings}/>
+    <Typebox
+        on:wordChanged={ onWordChanged }
+        on:started={ onStarted }
+        on:completed={ onCompleted }
+        on:keyPressed= { onKeyPressed }
+        on:keyUp= { onKeyUp }
+        bind:restartToggle={ restart }
+        bind:settings={ settings}/>
+    <Keyboard bind:this={keyboard} />
 
-      <Control on:restart={ handleRestart } />
-      <Setting bind:value={ settings } />
-    </div>
-    <div class="right-side-bar"> </div>
+    <Control on:restart={ handleRestart } />
+    <Setting bind:value={ settings } />
   </div>
 
   <div style="text-align: center">
@@ -73,22 +68,8 @@
 <style>
 .content {
   display: flex;
-}
-
-.left-side-bar {
-  width: 380px;
-  max-width: 380px;
-  min-width: 380px;
-}
-
-.middle-content {
-  flex-grow: 1;
-}
-
-.right-side-bar {
-  width: 380px;
-  max-width: 380px;
-  min-width: 380px;
+  flex-direction: column;
+  align-items: center;
 }
 
 </style>

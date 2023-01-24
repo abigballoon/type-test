@@ -28,7 +28,8 @@
   .box {
     text-align: center;
     padding: 1em;
-    margin: 0 auto;
+    margin-bottom: 4px;
+    width: 60%;
     border: 1px solid #b3b3b3;
     border-radius: 4px;
   }
