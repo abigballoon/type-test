@@ -20,6 +20,7 @@
   }
 
   function handletyped(event) {
+    console.log(event);
     let length = textarea.value.length;
     if (length == text.length + 1 && textarea.value[length - 1] == '\n') {
       handleComplete();
@@ -29,7 +30,7 @@
 
     typedcontent = textarea.value;
     cursor = typedcontent.length;
-    countWords();
+    countWords(event.data);
     if (!started) {
       started = true;
       eventDispatch("started");
@@ -41,7 +42,7 @@
     eventDispatch("completed");
   }
 
-  function countWords() {
+  function countWords(key) {
     let correct = 0;
     for (let i = 0; i < typedcontent.length && i < text.length; i++) {
       if (typedcontent[i] == text[i]) {
@@ -64,7 +65,9 @@
     );
 
     if (!typedcontent.length) { return; }
+    if (!key) { return; }
     let target = text[typedcontent.length - 1];
+    if (target == " ") { return; }
     let typed = typedcontent[typedcontent.length - 1];
     let targetCorrect = target == typed;
     eventDispatch(

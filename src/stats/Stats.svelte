@@ -26,7 +26,6 @@
 
     function load() {
         let text = localStorage.getItem("stat");
-        console.log(text);
         if (text) {
             stats = JSON.parse(text);
             statsList = refreshStats();
